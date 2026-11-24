@@ -1,0 +1,16 @@
+{
+  "_nota": "Lista de las 7 emisoras. Cada una tiene su color de la bandera del Cusco (fucsia para la principal). 'stream' es la URL de la radio que se retransmite: PROVISIONAL, falta que Jhan confirme las fuentes reales.",
+  "fallback": {
+    "_nota": "AutoDJ de AzuraCast: suena solo si las 7 emisoras están caídas.",
+    "stream": ""
+  },
+  "emisoras": [
+    { "id": "urbana",   "principal": true, "color": "#F52AAE", "nombre": "Caprichos Urbana",   "genero": { "es": "Urbano y reggaetón", "fr": "Urbain et reggaeton" }, "stream": "" },
+    { "id": "chicha",   "color": "#E31B23", "nombre": "Caprichos Chicha",   "genero": { "es": "Chicha y cumbia peruana", "fr": "Chicha et cumbia péruvienne" }, "stream": "" },
+    { "id": "salsa",    "color": "#F47716", "nombre": "Caprichos Salsa",    "genero": { "es": "Salsa", "fr": "Salsa" }, "stream": "" },
+    { "id": "tropical", "color": "#FCE500", "nombre": "Caprichos Tropical", "genero": { "es": "Tropical y merengue", "fr": "Tropical et merengue" }, "stream": "" },
+    { "id": "andina",   "color": "#008C45", "nombre": "Caprichos Andina",   "genero": { "es": "Huayno y música andina", "fr": "Huayno et musique andine" }, "stream": "" },
+    { "id": "latina",   "color": "#75CDE8", "nombre": "Caprichos Latina",   "genero": { "es": "Pop latino", "fr": "Pop latine" }, "stream": "" },
+    { "id": "electro",  "color": "#1749B5", "nombre": "Caprichos Electro",  "genero": { "es": "Electrónica", "fr": "Électronique" }, "stream": "" }
+  ]
+}

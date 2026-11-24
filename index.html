@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- Plantilla única: los textos se cargan desde i18n/es.json o i18n/fr.json -->
+<html lang="es-PE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radio Caprichos</title>
+  <meta name="description" content="Radio Caprichos: 7 emisoras con los colores de la bandera del Cusco.">
+  <meta name="theme-color" content="#000000">
+  <link rel="alternate" hreflang="es-PE" href="https://radiocaprichos.com/">
+  <link rel="alternate" hreflang="fr-FR" href="https://radiocaprichos.com/fr/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/caprichos.css">
+</head>
+<body>
+  <!-- Franja con los 7 colores de la bandera del Cusco -->
+  <div class="wiphala" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <header class="top">
+    <a class="logo" href="./">RADIO <b>CAPRICHOS</b></a>
+    <nav>
+      <a href="#emisoras" data-t="nav_radio">Emisoras</a>
+      <a href="#historia" data-t="nav_historia">Historia</a>
+      <button class="lang" id="lang" type="button">FR</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="kicker" data-t="hero_kicker"></p>
+      <h1 class="neon" data-t="hero_title">Siete colores, siete emisoras</h1>
+      <p class="lead" data-t="hero_text"></p>
+      <button class="cta" id="cta" type="button" data-t="hero_cta">Escuchar ahora</button>
+    </section>
+
+    <section id="emisoras">
+      <h2 data-t="emisoras_title">Elige tu emisora</h2>
+      <div class="grid" id="grid"><!-- Tarjetas generadas desde data/emisoras.json --></div>
+    </section>
+
+    <section id="historia" class="historia">
+      <h2 data-t="historia_title">Nuestra historia</h2>
+      <p data-t="historia_text"></p>
+    </section>
+  </main>
+
+  <footer><span data-t="footer"></span></footer>
+
+  <!-- Reproductor horizontal fijo, toma el color de la emisora activa -->
+  <aside class="player" id="player" hidden>
+    <div class="cover" id="cover"></div>
+    <div class="meta">
+      <span class="live" data-t="en_vivo">En vivo</span>
+      <strong id="p-title">—</strong>
+      <span id="p-station"></span>
+    </div>
+    <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <button class="play" id="play" type="button" aria-label="Play/Pausa">▶</button>
+  </aside>
+  <audio id="audio" preload="none"></audio>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>

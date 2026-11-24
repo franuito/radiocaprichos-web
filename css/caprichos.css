@@ -1,0 +1,118 @@
+/* ===== Radio Caprichos · estilos chicha =====
+   Paleta oficial: bandera del Cusco + fucsia chicha para la emisora principal */
+:root {
+  --rojo: #E31B23;
+  --naranja: #F47716;
+  --amarillo: #FCE500;
+  --verde: #008C45;
+  --celeste: #75CDE8;
+  --azul: #1749B5;
+  --violeta: #762D69;
+  --fucsia: #F52AAE;
+  --fondo: #000;
+  --texto: #fff;
+  --acento: var(--fucsia);           /* cambia con la emisora activa */
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; }
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: "Archivo", system-ui, sans-serif;
+  line-height: 1.5;
+  padding-bottom: 96px;               /* espacio para el reproductor fijo */
+}
+
+/* Franja de 7 colores */
+.wiphala { display: flex; height: 6px; }
+.wiphala i { flex: 1; }
+.wiphala i:nth-child(1) { background: var(--rojo); }
+.wiphala i:nth-child(2) { background: var(--naranja); }
+.wiphala i:nth-child(3) { background: var(--amarillo); }
+.wiphala i:nth-child(4) { background: var(--verde); }
+.wiphala i:nth-child(5) { background: var(--celeste); }
+.wiphala i:nth-child(6) { background: var(--azul); }
+.wiphala i:nth-child(7) { background: var(--violeta); }
+
+/* Cabecera */
+.top { display: flex; justify-content: space-between; align-items: center; padding: 16px; max-width: 1200px; margin: auto; }
+.logo { font-family: "Bungee", sans-serif; color: var(--texto); text-decoration: none; font-size: 1.1rem; }
+.logo b { color: var(--fucsia); text-shadow: 0 0 10px var(--fucsia); font-weight: 400; }
+nav { display: flex; gap: 16px; align-items: center; }
+nav a { color: var(--texto); text-decoration: none; font-weight: 600; }
+nav a:hover { color: var(--amarillo); }
+.lang { background: none; border: 2px solid var(--amarillo); color: var(--amarillo); font: 700 .85rem "Archivo"; padding: 4px 10px; border-radius: 99px; cursor: pointer; }
+
+/* Portada */
+.hero { text-align: center; padding: 64px 16px 48px; max-width: 900px; margin: auto; }
+.kicker { color: var(--amarillo); text-transform: uppercase; letter-spacing: .15em; font-weight: 800; font-size: .8rem; }
+.neon {
+  font-family: "Bungee Shade", "Bungee", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 7vw, 4.8rem);
+  line-height: 1.05;
+  margin: 16px 0;
+  color: var(--fucsia);
+  text-shadow: 0 0 6px var(--fucsia), 0 0 24px var(--fucsia), 0 0 48px var(--violeta);
+}
+.lead { font-size: 1.15rem; color: #ddd; max-width: 640px; margin: 0 auto 28px; }
+.cta {
+  font: 400 1.1rem "Bungee"; color: #000; background: var(--amarillo);
+  border: 0; padding: 14px 28px; border-radius: 99px; cursor: pointer;
+  box-shadow: 0 0 20px var(--amarillo);
+}
+
+/* Emisoras */
+section { padding: 32px 16px; max-width: 1200px; margin: auto; }
+h2 { font-family: "Bungee"; font-weight: 400; font-size: clamp(1.4rem, 4vw, 2.2rem); margin-bottom: 20px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }   /* principal arriba + 6 emisoras en 2 filas de 3 */
+@media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+.card {
+  --c: var(--fucsia);
+  border: 2px solid var(--c); border-radius: 18px; padding: 20px;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--c) 22%, #000), #000 70%);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--c) 50%, transparent);
+  cursor: pointer; text-align: left; color: var(--texto); font: inherit;
+  transition: transform .15s, box-shadow .15s;
+}
+.card:hover, .card.activa { transform: translateY(-3px); box-shadow: 0 0 28px var(--c); }
+.card.principal { grid-column: 1 / -1; padding: 32px; }
+.card .tag { font-size: .7rem; font-weight: 800; text-transform: uppercase; color: #000; background: var(--c); padding: 2px 8px; border-radius: 99px; }
+.card h3 { font-family: "Bungee"; font-weight: 400; font-size: 1.3rem; margin: 10px 0 4px; color: var(--c); text-shadow: 0 0 8px var(--c); }
+.card.principal h3 { font-size: clamp(1.6rem, 5vw, 2.6rem); }
+.card p { color: #ccc; }
+
+.historia p { max-width: 720px; font-size: 1.1rem; color: #ddd; }
+footer { text-align: center; padding: 32px 16px; color: #888; font-size: .9rem; }
+
+/* Reproductor horizontal (estilo Apple Music) */
+.player {
+  position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 10;
+  display: flex; align-items: center; gap: 14px; padding: 10px 14px;
+  background: rgba(10,10,10,.92); backdrop-filter: blur(12px);
+  border: 2px solid var(--acento); border-radius: 18px;
+  box-shadow: 0 0 22px color-mix(in srgb, var(--acento) 60%, transparent);
+  max-width: 900px; margin: auto;
+}
+.cover { width: 56px; height: 56px; border-radius: 10px; flex: none; background: var(--acento) center/cover; }
+.meta { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.meta strong, .meta span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.meta #p-station { color: var(--acento); font-size: .85rem; }
+.live { font-size: .65rem; font-weight: 800; text-transform: uppercase; color: var(--rojo); }
+.play { width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--acento); color: #000; font-size: 1.2rem; cursor: pointer; flex: none; }
+.eq { display: flex; gap: 3px; align-items: flex-end; height: 28px; }
+.eq i { width: 4px; background: var(--acento); height: 30%; border-radius: 2px; }
+.player.sonando .eq i { animation: eq .8s infinite ease-in-out alternate; }
+.eq i:nth-child(2) { animation-delay: .2s !important; }
+.eq i:nth-child(3) { animation-delay: .4s !important; }
+.eq i:nth-child(4) { animation-delay: .1s !important; }
+.eq i:nth-child(5) { animation-delay: .3s !important; }
+@keyframes eq { to { height: 100%; } }
+
+@media (max-width: 560px) {
+  nav a { display: none; }            /* en móvil solo queda el botón de idioma */
+  .eq { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .player.sonando .eq i { animation: none; } }
