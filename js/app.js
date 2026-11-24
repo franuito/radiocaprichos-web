@@ -18,11 +18,13 @@ function localStorageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }
 async function cargarIdioma(l) {
   T = await cargar(`i18n/${l}.json`);
   document.documentElement.lang = T.lang;
-  document.title = T.title;
-  document.querySelector('meta[name="description"]').content = T.description;
+  // Cada página indica su prefijo de textos en <body data-page="..."> (vacío = portada)
+  const pg = document.body.dataset.page ? document.body.dataset.page + "_meta_" : "";
+  document.title = T[pg + "title"] || T.title;
+  document.querySelector('meta[name="description"]').content = T[pg + "description"] || T.description;
   document.querySelectorAll("[data-t]").forEach((el) => { if (T[el.dataset.t]) el.textContent = T[el.dataset.t]; });
   $("#lang").textContent = l === "es" ? "FR" : "ES";
-  if (data) pintarEmisoras();
+  if (data && $("#grid")) pintarEmisoras();
 }
 
 // --- Tarjetas ---
@@ -68,12 +70,15 @@ function siguiente(i, intentos) {
   setTimeout(() => sintonizar((i + 1) % data.emisoras.length, intentos + 1), 1500);
 }
 
+// Lo que sigue solo existe en las páginas con reproductor
+if (audio) {
 audio.onplaying = () => { $("#player").classList.add("sonando"); $("#play").textContent = "❚❚"; };
 audio.onpause = () => { $("#player").classList.remove("sonando"); $("#play").textContent = "▶"; };
 $("#play").onclick = () => (audio.paused ? audio.play().catch(() => {}) : audio.pause());
-$("#cta").onclick = () => sintonizar(data.emisoras.findIndex((e) => e.principal));
+if ($("#cta")) $("#cta").onclick = () => sintonizar(data.emisoras.findIndex((e) => e.principal));
+}
 $("#lang").onclick = () => { lang = lang === "es" ? "fr" : "es"; localStorageSet("lang", lang); cargarIdioma(lang); };
 
 // --- Arranque ---
-data = await cargar("data/emisoras.json");
+if ($("#grid")) data = await cargar("data/emisoras.json");
 await cargarIdioma(lang);

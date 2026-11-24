@@ -1,0 +1,86 @@
+<!doctype html>
+<!-- Página Los Pioneros: textos en i18n/*.json con el prefijo pio_ -->
+<html lang="es-PE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Los Pioneros · Radio Caprichos</title>
+  <meta name="description" content="Las primeras voces de Radio Caprichos.">
+  <meta name="theme-color" content="#000000">
+  <link rel="alternate" hreflang="es-PE" href="https://radiocaprichos.com/pioneros.html">
+  <link rel="alternate" hreflang="fr-FR" href="https://radiocaprichos.com/fr/pioneros.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/caprichos.css">
+</head>
+<body data-page="pio">
+  <!-- Franja con los 7 colores de la bandera del Cusco -->
+  <div class="wiphala" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <header class="top">
+    <a class="logo" href="./">RADIO <b>CAPRICHOS</b></a>
+    <nav>
+      <a href="./" data-t="nav_inicio">Inicio</a>
+      <a href="pioneros.html" aria-current="page" data-t="nav_pioneros">Pioneros</a>
+      <button class="lang" id="lang" type="button">FR</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="kicker">Villa El Salvador · Lima · 2008</p>
+      <h1 class="neon" data-t="pio_titulo">Los Pioneros</h1>
+      <p class="lead" data-t="pio_subtitle"></p>
+      <p class="lead suave" data-t="pio_intro"></p>
+    </section>
+
+    <section>
+      <h2 data-t="pio_foundersTitle">Fundadores y equipo histórico</h2>
+      <p class="sub" data-t="pio_foundersSubtitle"></p>
+
+      <!-- Cada pionero lleva un color de la bandera del Cusco -->
+      <div class="pioneros">
+        <article class="pionero" style="--c: var(--amarillo)">
+          <div class="inicial" aria-hidden="true">C</div>
+          <span class="rol" data-t="pio_carlosRole">DJ e inspiración</span>
+          <h3>Carlos <em>“Lokerfy”</em></h3>
+          <p data-t="pio_carlosText"></p>
+        </article>
+        <article class="pionero" style="--c: var(--celeste)">
+          <div class="inicial" aria-hidden="true">P</div>
+          <span class="rol" data-t="pio_puchiRole">Locutor</span>
+          <h3>Eddie <em>“Puchi”</em></h3>
+          <p data-t="pio_puchiText"></p>
+        </article>
+        <article class="pionero" style="--c: var(--naranja)">
+          <div class="inicial" aria-hidden="true">G</div>
+          <span class="rol" data-t="pio_geryRole">Comunidad</span>
+          <h3>Geraldine <em>“Gery”</em></h3>
+          <p data-t="pio_geryText"></p>
+        </article>
+        <article class="pionero" style="--c: var(--fucsia)">
+          <div class="inicial" aria-hidden="true">F</div>
+          <span class="rol" data-t="pio_franuitoRole">Fundador</span>
+          <h3>Jhan F <em>“Franuito”</em></h3>
+          <p data-t="pio_franuitoText"></p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-t="pio_legacyTitle">Lo que construyeron</h2>
+      <p class="sub" data-t="pio_legacySubtitle"></p>
+      <div class="legado">
+        <div style="--c: var(--rojo)"><h3 data-t="pio_legacyRadioTitle"></h3><p data-t="pio_legacyRadioText"></p></div>
+        <div style="--c: var(--verde)"><h3 data-t="pio_legacyChatTitle"></h3><p data-t="pio_legacyChatText"></p></div>
+        <div style="--c: var(--violeta)"><h3 data-t="pio_legacyMemoryTitle"></h3><p data-t="pio_legacyMemoryText"></p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span data-t="pio_footerSlogan"></span> · © 2008–2026 Radio Caprichos</footer>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>

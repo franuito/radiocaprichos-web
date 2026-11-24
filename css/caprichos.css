@@ -112,7 +112,36 @@ footer { text-align: center; padding: 32px 16px; color: #888; font-size: .9rem; 
 @keyframes eq { to { height: 100%; } }
 
 @media (max-width: 560px) {
-  nav a { display: none; }            /* en móvil solo queda el botón de idioma */
+  nav { gap: 10px; } nav a { font-size: .85rem; }   /* en móvil el menú se hace más compacto */
   .eq { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .player.sonando .eq i { animation: none; } }
+
+/* ===== Página Los Pioneros ===== */
+.suave { color: #aaa; font-size: 1rem; }
+.sub { color: #bbb; margin: -12px 0 24px; }
+nav a[aria-current="page"] { color: var(--fucsia); }
+.mas { color: var(--amarillo); font-weight: 800; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; }
+.pioneros { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.pionero {
+  --c: var(--fucsia);
+  border: 2px solid var(--c); border-radius: 18px; padding: 24px;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--c) 18%, #000), #000 65%);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--c) 45%, transparent);
+  min-width: 0;
+}
+.inicial {
+  width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+  font: 400 1.8rem "Bungee", sans-serif; color: #000; background: var(--c);
+  box-shadow: 0 0 18px var(--c); margin-bottom: 14px;
+}
+.rol { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--c); }
+.pionero h3 { font: 400 1.35rem "Bungee", sans-serif; margin: 6px 0 10px; }
+.pionero h3 em { font-style: normal; color: var(--c); text-shadow: 0 0 8px var(--c); }
+.pionero p { color: #ccc; }
+.legado { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.legado > div { border-top: 4px solid var(--c); padding-top: 14px; min-width: 0; }
+.legado h3 { font: 400 1.1rem "Bungee", sans-serif; color: var(--c); margin-bottom: 8px; filter: brightness(1.4); }
+.legado p { color: #ccc; }
+@media (max-width: 760px) { .pioneros, .legado { grid-template-columns: 1fr; } }
